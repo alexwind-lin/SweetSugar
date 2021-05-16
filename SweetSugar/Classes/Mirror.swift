@@ -39,14 +39,14 @@ public extension Mirror {
             return ("\(enumObject)", [:])
         }
               
-        let param = self.descibeObjectAsKeyValue(rootValue)
+        let param = self.describeObjectAsKeyValue(rootValue)
         return (key, param)
     }
 
     /**
      * 将Object转为[String: String]的键值对
      */
-    static func descibeObjectAsKeyValue(_ rootObject: Any) -> [String: String] {
+    static func describeObjectAsKeyValue(_ rootObject: Any) -> [String: String] {
         let result = Mirror.getDict(from: rootObject).compactMapValues { (value) -> String? in
             var value = value
             if let opt = value as? AnyOptional {
