@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct JSONCodingKeys: CodingKey {
-    var stringValue: String
+public struct JSONCodingKeys: CodingKey {
+    public var stringValue: String
 
-    init?(stringValue: String) {
+    public init?(stringValue: String) {
         self.stringValue = stringValue
     }
 
-    var intValue: Int?
+    public var intValue: Int?
 
-    init?(intValue: Int) {
+    public init?(intValue: Int) {
         self.init(stringValue: "\(intValue)")
         self.intValue = intValue
     }
