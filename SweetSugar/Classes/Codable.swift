@@ -34,4 +34,8 @@ public extension Decodable {
     init<Key: CodingKey>(container: KeyedDecodingContainer<Key>, key: KeyedDecodingContainer<Key>.Key) throws {
         self = try container.decode(Self.self, forKey: key)
     }
+    
+    init(container: SingleValueDecodingContainer) throws {
+        self = try container.decode(Self.self)
+    }
 }
