@@ -9,8 +9,8 @@ import Foundation
 
 public extension Encodable {
     // Encodable作为对象传递进来时，可以直接用toJSONData进行序列化，避免掉不知道类型无法encode的问题
-    func toJSONData() -> Data? {
-        return try? JSONEncoder().encode(self)
+    func toJSONData() throws -> Data {
+        return try JSONEncoder().encode(self)
     }
 }
 
