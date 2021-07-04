@@ -50,8 +50,8 @@ public extension Dictionary where Key == String, Value: Any {
  */
 fileprivate func getKeyList(from tupleType: SomeTuple.Type) -> [String] {
     var rawType = tupleType
-    while let optionalType = rawType as? AnyOptional.Type {
-        rawType = optionalType.wrappedType
+    if let optionalType = rawType as? AnyOptional.Type {
+        rawType = optionalType.wrappedNonOptionalType
     }
 
     let desc = String(describing: rawType)

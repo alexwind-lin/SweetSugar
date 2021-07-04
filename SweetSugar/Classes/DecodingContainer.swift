@@ -90,13 +90,15 @@ public extension UnkeyedDecodingContainer {
                 continue
             } else if let value = try? decode(Bool.self) {
                 array.append(value)
+            } else if let value = try? decode(Int.self) {
+                array.append(value)
             } else if let value = try? decode(Double.self) {
                 array.append(value)
             } else if let value = try? decode(String.self) {
                 array.append(value)
             } else if let nestedDictionary = try? decode(Dictionary<String, Any>.self) {
                 array.append(nestedDictionary)
-            } else if let nestedArray = try? decode(Array<Any>.self) {
+            } else if var subContainer = try? self.nestedUnkeyedContainer(), let nestedArray = try? subContainer.decode(Array<Any>.self) {
                 array.append(nestedArray)
             }
         }
