@@ -50,9 +50,10 @@ public extension Dictionary where Key == String, Value: Any {
  */
 fileprivate func getKeyList(from tupleType: SomeTuple.Type) -> [String] {
     var rawType = tupleType
-    if let optionalType = tupleType as? AnyOptional.Type {
+    while let optionalType = rawType as? AnyOptional.Type {
         rawType = optionalType.wrappedType
     }
+
     let desc = String(describing: rawType)
     let elements = desc.split(maxSplits: 3, omittingEmptySubsequences: true) { "(,:) ".contains($0) }
     var result: [String] = []
