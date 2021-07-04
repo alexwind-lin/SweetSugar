@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SweetSugar'
-  s.version          = '1.0.5'
+  s.version          = '1.0.6'
   s.summary          = 'Some Swift trick to make it sweet.'
   s.swift_version    = '5.0'
 # This description is used to generate tags and improve search results.
