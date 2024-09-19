@@ -2,7 +2,7 @@
 //  Tuple.swift
 //  SweetSugar
 //
-//  Created by kensou on 2021/6/6.
+//  Created on 2021/6/6.
 //
 
 import Foundation

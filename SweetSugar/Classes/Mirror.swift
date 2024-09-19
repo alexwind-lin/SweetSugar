@@ -1,8 +1,7 @@
 //
 //  Mirror.swift
-//  KSFootStone
 //
-//  Created by kensou on 2021/4/5.
+//  Created on 2021/4/5.
 //
 
 import Foundation

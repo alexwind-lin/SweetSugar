@@ -1,8 +1,7 @@
 //
 //  Decodable+Collection.swift
-//  KSFootStone
 //
-//  Created by kensou on 2021/4/5.
+//  Created on 2021/4/5.
 //
 
 import Foundation
@@ -109,5 +108,60 @@ public extension UnkeyedDecodingContainer {
 
         let nestedContainer = try self.nestedContainer(keyedBy: JSONCodingKeys.self)
         return try nestedContainer.decode(type)
+    }
+}
+
+// MARK: - Encode
+extension KeyedEncodingContainer where K == JSONCodingKeys {
+    public mutating func encode(_ value: Dictionary<String, Any>) throws {
+        for item in value {
+            guard let key = JSONCodingKeys(stringValue: item.key) else {
+                continue
+            }
+            
+            switch item.value {
+            case let number as Int:
+                try encode(number, forKey: key)
+            case let number as Double:
+                try encode(number, forKey: key)
+            case let string as String:
+                try encode(string, forKey: key)
+            case let bool as Bool:
+                try encode(bool, forKey: key)
+            case let array as [Any]:
+                var container = nestedUnkeyedContainer(forKey: key)
+                try container.encode(array)
+            case let dictionary as [String: Any]:
+                var container = nestedContainer(keyedBy: Key.self, forKey: key)
+                try container.encode(dictionary)
+            default:
+                print("unknown type \(item)")
+            }
+        }
+    }
+}
+
+extension UnkeyedEncodingContainer {
+    public mutating func encode(_ value: Array<Any>) throws {
+        for item in value {
+            switch item {
+            case let number as Int:
+                try encode(number)
+            case let number as Double:
+                try encode(number)
+            case let string as String:
+                try encode(string)
+            case let bool as Bool:
+                try encode(bool)
+            case let array as [Any]:
+                var container = nestedUnkeyedContainer()
+                try container.encode(array)
+            case let dictionary as [String: Any]:
+                var container =  nestedContainer(keyedBy: JSONCodingKeys.self)
+                try container.encode(dictionary)
+            default:
+                print("unknown type \(item)")
+            }
+        }
     }
 }

@@ -1,8 +1,7 @@
 //
 //  AnyOptional.swift
-//  KSFootStone
 //
-//  Created by kensou on 2021/4/4.
+//  Created on 2021/4/4.
 //
 
 import Foundation
