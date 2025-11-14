@@ -70,6 +70,12 @@ Carthage/Build/
 Dependencies/
 .accio/
 
+/Packages
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
+
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo.

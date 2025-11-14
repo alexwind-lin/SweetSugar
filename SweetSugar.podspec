@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SweetSugar'
-  s.version          = '1.1.1'
+  s.version          = '1.2.0'
   s.summary          = 'Some Swift trick to make it sweet.'
   s.swift_version    = '5.0'
 # This description is used to generate tags and improve search results.
@@ -30,13 +30,5 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'SweetSugar/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'SweetSugar' => ['SweetSugar/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files = 'Sources/SweetSugar/**/*'
 end
